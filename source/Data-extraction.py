@@ -64,7 +64,7 @@ def sort_decoding_problems(df):
     return df
 
 
-# In[4]:
+# In[6]:
 
 
 def load_data():
@@ -85,7 +85,7 @@ def load_data():
 
         for message_file in message_files:
             path_to_json = path_to_person / message_file
-            with open(path_to_json, encoding='unicode') as json_data:
+            with open(path_to_json, encoding='utf-8') as json_data:
                 loaded_json_data = json.load(json_data)
                 #Looking at the jsons we have several categories in the dict - we have:
                 #'participants'
@@ -110,72 +110,9 @@ def load_data():
     return messages_df
 
 
-# In[5]:
-
-
-messages_df = load_data()
-
-
-# In[6]:
-
-
-messages_df["Message"][16]
-
-
-# In[ ]:
-
-
-with open(r"C:\Users\Andres\Desktop\Coding\Sentiment-Analysis\Data\inbox\jamesroberts_tfsdjpzmoa\message_1.json", 'rb') as rawdata:
-    result = chardet.detect(rawdata.read(1000))
-
-# check what the character encoding might be
-print(result)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[7]:
 
 
-messages_df
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
+messages_df = load_data()
+messages_df.to_csv("../data/processed/initial_df.csv", index=False)
 

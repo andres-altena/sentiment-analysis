@@ -6,6 +6,7 @@
 
 from Tokeniser import TextTokeniser
 from Decoder import Decoder
+import pandas as pd
 
 class Preprocessor():
     #Preprocessor object will deal with 
@@ -18,6 +19,8 @@ class Preprocessor():
         self.decoder = Decoder()
     
     def pre_token_preprocessing(self, text):
+        #text = pd.to_str(text)
+        text = str(text)
         text = self.decoder.decode(text)
         return text
     
